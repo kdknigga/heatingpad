@@ -116,8 +116,8 @@ if __name__ == "__main__":
     import configparser
 
     argparser = argparse.ArgumentParser()
-    parser.add_argument("-c", "--config-file", default="/dev/null", help="Path to the config file")
-    args = parser.parse_args()
+    argparser.add_argument("-c", "--config-file", default="/dev/null", help="Path to the config file")
+    args = argparser.parse_args()
 
     configfile = configparser.ConfigParser()
     configfile["DEFAULT"] = {"Tilt_Color": "RED",
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     wemo_name = heatingpadconfig["WeMo_Switch_Name"]
     setpoint = heatingpadconfig["Setpoint_Temperature"]
 
-    heatingpad = heatingpad(
+    heating_pad = heatingpad(
         TILT_COLOR=tilt_color,
         TILTPI_HOST=tiltpi_host,
         TILTPI_PORT=tiltpi_port,
@@ -146,7 +146,7 @@ if __name__ == "__main__":
         SETPOINT=setpoint
     )
 
-    heatingpad.main_loop()
+    heating_pad.main_loop()
 
 
 
