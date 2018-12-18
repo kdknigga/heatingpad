@@ -220,3 +220,4 @@ pip-selfcheck.json
 virtenv/
 venv/
 virtualenv/
+.vscode/
