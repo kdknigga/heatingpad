@@ -1,0 +1,21 @@
+# systemd service file to start heating pad service
+# place at /etc/systemd/system/heatingpad.service
+
+[Unit]
+Description=heating pad control
+Wants=nodered.service
+
+[Service]
+Type=simple
+# Run as normal pi user - feel free to change...
+User=pi
+Group=pi
+WorkingDirectory=/home/pi/heatingpad
+ExecStart=/home/pi/heatingpad/virtenv/bin/python -u /home/pi/heatingpad/heatingpad.py
+Restart=on-failure
+SyslogIdentifier=heatingpad
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
