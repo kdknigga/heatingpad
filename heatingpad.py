@@ -13,7 +13,7 @@ class heatingpad(object):
         self.tiltpi_host = TILTPI_HOST
         self.tiltpi_port = TILTPI_PORT
         self.wemo_name = WEMO_NAME
-        self.setpoint = SETPOINT
+        self.setpoint = int(SETPOINT)
 
         self.wemo = None
 
@@ -27,7 +27,7 @@ class heatingpad(object):
             print("Wemo \"%s\" not found on network" % self.wemo_name)
             sys.exit(1)
 
-        print("Found Wemo: %s | mac: %s | serial: %s | ipaddress: %s".format(
+        print("Found Wemo: {} | mac: {} | serial: {} | ipaddress: {}".format(
             self.wemo.name,
             self.wemo.mac,
             self.wemo.serialnumber,
@@ -37,7 +37,7 @@ class heatingpad(object):
     def main_loop(
             self,
             LOOP_DELAY_SECONDS=60,
-            MAX_TIMESTAMP_MINTUES=10,
+            MAX_TIMESTAMP_MINTUES=20,
             MAX_CONSECUTIVE_TILTPI_FAILURES=5,
             MAX_SETPOINT_DEVIATION=1
     ):
@@ -48,8 +48,13 @@ class heatingpad(object):
 
         while True:
 
+            temp_age_message = ""
+            temp_val_message = ""
+            switch_state_message = ""
+            switch_action_message = ""
+
             try:
-                tiltpi_request = requests.get("http://%s:%s/data/%s.json".format(
+                tiltpi_request = requests.get("http://{}:{}/data/{}.json".format(
                     self.tiltpi_host,
                     self.tiltpi_port,
                     self.tilt_color
@@ -102,7 +107,7 @@ class heatingpad(object):
                 except:
                     pass
 
-            print("%s | %s | %s | %s".format(
+            print("{} | {} | {} | {}".format(
                 temp_age_message,
                 temp_val_message,
                 switch_state_message,
