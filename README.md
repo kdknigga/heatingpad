@@ -27,7 +27,7 @@ Finally, start the script, either via the soon-to-be included systemd unit file 
 ## Thoughts
 This script assumes that too cool is better than too hot.  Too cool can mean slow fermentation, but too hot can mean cooked yeast!  If it goes more than 10 minutes (by default) without getting an updated temperature it will turn the heat off.  If the TiltPi software stops responding it will turn the heat off.  Basically, if anything goes wrong it turns the heat off.
 
-A systemd unit file is forthcoming.  When run as a systemd service, log messages get sent to syslog.
+When run as a systemd service, log messages get sent to syslog.
 
 I've only tested this with an old-style WeMo Switched Smart Plug, as that's what I have.  I think it should work with the newer plugs, though.
 
