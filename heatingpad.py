@@ -15,6 +15,14 @@ class heatingpad(object):
         self.wemo_name = WEMO_NAME
         self.setpoint = int(SETPOINT)
 
+        print("Starting heating pad control | Tilt Color: {} | TiltPi Host: {} | TiltPi Port: {} | WeMo Switch Name: {} | Setpoint: {}".format(
+            self.tilt_color,
+            self.tiltpi_host,
+            self.tiltpi_port,
+            self.wemo_name,
+            self.setpoint
+        ))
+
         self.wemo = None
 
         wemo_devices = pywemo.discover_devices()
