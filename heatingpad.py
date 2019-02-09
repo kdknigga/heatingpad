@@ -37,7 +37,7 @@ class heatingpad(object):
     def main_loop(
             self,
             LOOP_DELAY_SECONDS=60,
-            MAX_TIMESTAMP_MINTUES=20,
+            MAX_TIMESTAMP_MINTUES=30,
             MAX_CONSECUTIVE_TILTPI_FAILURES=5,
             MAX_SETPOINT_DEVIATION=1
     ):
