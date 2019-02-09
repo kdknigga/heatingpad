@@ -3,7 +3,8 @@
 
 [Unit]
 Description=heating pad control
-Wants=nodered.service
+Requires=nodered.service
+After=network.target nodered.service
 
 [Service]
 Type=simple
@@ -11,8 +12,10 @@ Type=simple
 User=pi
 Group=pi
 WorkingDirectory=/home/pi/heatingpad
-ExecStart=/home/pi/heatingpad/virtenv/bin/python -u /home/pi/heatingpad/heatingpad.py
+#ExecStart=/home/pi/heatingpad/virtenv/bin/python -u /home/pi/heatingpad/heatingpad.py
+ExecStart=/home/pi/heatingpad/virtenv/bin/python -u /home/pi/heatingpad/heatingpad.py -c /home/pi/heatingpad.conf
 Restart=on-failure
+RestartSec=60
 SyslogIdentifier=heatingpad
 StandardOutput=syslog
 StandardError=syslog
