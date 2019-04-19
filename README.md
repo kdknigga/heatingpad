@@ -7,7 +7,7 @@ The script is intended to run on the TiltPi, but could run on another device.  A
 ## Getting Started
 Parts required:
 * WeMo plug
-* Simple heating pad that turns on with power application
+* Simple heating pad that turns on with power application ([perhaps like this](https://www.prairie-essentials.com/collections/home-and-garden/products/prairie-essentials-3-x-20-strip-wrap-around-heating-pad-warming-heat-mat-thermometer-for-kombucha-tea-beer-brewing-plant-fermentation-seedlings-plant-germination))
 * A Raspberry Pi (or similar) running TiltPi
 * A Tilt hydrometer
 * Some liquid/yeast mixture that you want to ferment in a container
